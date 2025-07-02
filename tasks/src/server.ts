@@ -1,18 +1,22 @@
-import express from 'express'
+import express from 'express';
+import { router } from './routes';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
-import { Router, Request, Response } from 'express';
+dotenv.config();
+
+mongoose.connect(process.env.DATABASE_URL as string)
+  .then(() => {
+    console.log('Conectado ao MongoDB');
+  })
+  .catch((error) => {
+    console.error('Erro ao conectar ao MongoDB:', error);
+  });
 
 const app = express();
+app.use(express.json());
+app.use(router);
 
-const route = Router()
-
-app.use(express.json())
-
-route.get('/tasks', (req: Request, res: Response) => {
-  res.json({ message: 'hello world with Typescript' })
-})
-
-app.use(route)
-
-
-app.listen(3002, () => 'server running on port 3002')
+app.listen(3002, () => {
+  console.log('Server running on port 3002');
+});
