@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "_version": "22.0.0",
+  "compilerOptions": {
+    "lib": ["es2024", "ESNext.Array", "ESNext.Collection", "ESNext.Iterator"],
+    "module": "commonjs",                   // Alterado para commonjs
+    "target": "es2022",                     // Mantido como es2022
+    "strict": true,                         // Habilita a checagem estrita
+    "esModuleInterop": true,                // Garante compatibilidade com módulos ES
+    "skipLibCheck": true,                   // Ignora a checagem de bibliotecas
+    "moduleResolution": "node",             // Resolução de módulos no estilo Node.js
+    "outDir": "./dist",                     // Diretório de saída dos arquivos compilados
+    "rootDir": "./src",                     // Diretório de origem dos arquivos TypeScript
+    "resolveJsonModule": true,              // Permite importar arquivos JSON como módulos
+    "isolatedModules": true,                // Habilita tratamento de módulos isolados
+    "noImplicitAny": true,                  // Força a declaração de tipos
+    "forceConsistentCasingInFileNames": true  // Força consistência nos nomes de arquivos
+  },
+  "include": ["src/**/*.ts"],                // Inclui todos os arquivos .ts dentro de src
+  "exclude": ["node_modules"]                // Exclui node_modules
+}
